@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "concurrently": "^9.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -15,11 +16,10 @@
   "name": "onlinestore",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
-     "backend": "nodemon backend/index.js",
-     "frontend": "npm run dev --prefix frontend",
-     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    "backend": "nodemon backend/index.js",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   },
   "author": "",
   "license": "ISC",
