@@ -3,6 +3,9 @@ const { asyncHandler } = require('../middlewares/asyncHandler');
 const bcrypt = require("bcryptjs");
 const createToken = require('../utils/createToken')
 
+
+// create user
+
 const createUser = asyncHandler(async(req, res) => {
    const { username, email, password} = req.body;
 
@@ -39,6 +42,7 @@ const createUser = asyncHandler(async(req, res) => {
 
 })
 
+// login user
 
 const loginUser = asyncHandler(async(req, res) => {
   const { email, password }  = req.body;
@@ -64,9 +68,21 @@ const loginUser = asyncHandler(async(req, res) => {
 
       }
   }
+});
+
+// logout user
+const logoutUser = asyncHandler(async(req, res) => {
+    res.cookie('jwt', '', {
+        httpOnly: true,
+        expires: new Date(0)
+    });
+
+    res.status(200).json({message: "logged out successfully"});
 })
+
 
 module.exports = {
     createUser,
-    loginUser
+    loginUser,
+    logoutUser
 }
