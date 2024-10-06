@@ -80,9 +80,18 @@ const logoutUser = asyncHandler(async(req, res) => {
     res.status(200).json({message: "logged out successfully"});
 })
 
+// get all users
+const getAllUsers = asyncHandler(async(req, res) => {
+    const users = await User.find({});
+
+    res.json(users);
+
+})
+
 
 module.exports = {
     createUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    getAllUsers
 }

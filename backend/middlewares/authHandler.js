@@ -5,7 +5,7 @@ const jwt  = require('jsonwebtoken');
 const authenticate = asyncHandler(async(req, res, next) => {
     let token;
 
-    token = req.cookie.jwt;
+    token = req.cookies.jwt;
 
     if(token) {
         try {
