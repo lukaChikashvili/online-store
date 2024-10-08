@@ -18,7 +18,7 @@
   "main": "index.js",
   "scripts": {
     "backend": "nodemon backend/index.js",
-    "frontend": "npm run dev --prefix frontend",
+    "frontend": "npm run dev --prefix frontend/store",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   },
   "author": "",
