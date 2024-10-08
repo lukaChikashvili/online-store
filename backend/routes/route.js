@@ -5,7 +5,8 @@ const { createUser,
         logoutUser, 
         getCurrentProfile, 
         updateCurrentProfile,
-        deleteUser} = require('../controllers/actions');
+        deleteUser,
+        getUserById} = require('../controllers/actions');
 
 const { authenticate, authorizeAdmin } = require('../middlewares/authHandler');
 const router = express.Router();
@@ -16,6 +17,6 @@ router.post('/logout', logoutUser);
 router.route('/profile').get(authenticate, getCurrentProfile).put(authenticate, updateCurrentProfile);
 
 // admin routes
-router.route('/:id').delete(authenticate, authorizeAdmin, deleteUser);
+router.route('/:id').delete(authenticate, authorizeAdmin, deleteUser).get(authenticate, authorizeAdmin, getUserById);
 
 module.exports = {routes: router}
