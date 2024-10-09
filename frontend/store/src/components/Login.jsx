@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
 import { useLoginMutation } from '../redux/api/userSlice';
 import { Link } from 'react-router-dom';
+import { setCredentials } from '../redux/features/auth/authSlice';
 
 
 const Login = () => {
@@ -27,6 +28,18 @@ const Login = () => {
         }
     }, [navigate, redirect, userInfo]);
 
+    const submitHandler = async (e) => {
+        e.preventDefault();
+
+        try {
+             const res = await login({ email, password }).unwrap();
+             console.log(res);
+             dispatch(setCredentials({...res}))
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
   return (
     <div>
@@ -35,7 +48,7 @@ const Login = () => {
              <h1 className='text-6xl font-semibold mb-4'>Sign In</h1>
             </div>
 
-            <form className='container w-[40rem]'>
+            <form onSubmit={submitHandler} className='container w-[40rem]'>
               <div className='my-[2rem] flex flex-col gap-4'>
                  <label htmlFor='email' className='block text-sm font-medium'>Email adress</label>
 
