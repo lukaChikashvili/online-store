@@ -8,13 +8,18 @@ import { Provider } from 'react-redux'
 import store from './redux/store.js'
 import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
+import PrivateRoutes from './components/PrivateRoutes.jsx'
+import Profile from './components/Profile.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element = {<App />}>
-     
+     <Route path='' element = {<PrivateRoutes />}>
+        <Route path = "/profile" element = {<Profile />} />
+      </Route>
        <Route path='/login' element = {<Login />} />   
        <Route path='/register' element = {<Register />} />
+ 
     </Route>
    
   )

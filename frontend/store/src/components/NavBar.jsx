@@ -102,7 +102,7 @@ const NavBar = () => {
 
 {dropdownOpen && userInfo && (
    <ul className='absolute bg-gray-500  bottom-12 left-12 flex flex-col gap-2 rounded-md p-2'>
-      <button className='duration-500 ease hover:bg-gray-300 rounded-md p-2'>Profile</button>
+      <button className='duration-500 ease hover:bg-gray-300 rounded-md p-2' onClick={() =>  navigate('/profile')}>Profile</button>
       <button className='duration-500 ease hover:bg-gray-300 rounded-md p-2' onClick={logoutHandler}>Logout</button>
    </ul>
 )}
