@@ -45,88 +45,30 @@ const NavBar = () => {
 
 
   return (
-    <div style={{zIndex: 999}} className={`${showSidebar ? "hidden" : "flex"} 
-    xl:flex lg:flex md:hidden sm:hidden flex-col justify-between p-4 text-white 
-    bg-black w-[4%] hover:w-[15%] h-[100vh] fixed`} id='navigation-container' >
-        <div>
-        <div className='flex flex-col justify-center space-y-4'>
-           <Link to = "/" className='flex items-center  transition-transform transform hover:translate-x-2'>
-              <HomeIcon className='mr-2 mt-[3rem]'/>
-              <span className='mt-[3rem] nav-item-name hidden '>HOME</span>{" "}
-           </Link>
-        
-        </div>
+   <header className='w-full h-[5rem] flex items-center justify-between px-[4rem] bg-[#191919]  text-white '>
+       <div>
+         <h1 className='text-[#FCC737] font-bold text-3xl' >BAIA</h1>
+       </div>
 
-        <div className='flex flex-col justify-center space-y-4'>
-           <Link to = "/cart" className='flex items-center  transition-transform transform hover:translate-x-2'>
-              <ShoppingBag className='mr-2 mt-[3rem]'/>
-              <span className='mt-[3rem] nav-item-name hidden'>SHOP</span>{" "}
-           </Link>
-        
-        </div>
+
       
 
-        <div className='flex flex-col justify-center space-y-4'>
-           <Link to = "/" className='flex items-center  transition-transform transform hover:translate-x-2'>
-              <ShoppingCart className='mr-2 mt-[3rem]'/>
-              <span className='mt-[3rem] nav-item-name hidden'>CART</span>{" "}
-           </Link>
-        
-        </div>
+       <div className='flex items-center gap-12 text-lg'>
+         <div>
+         <nav className='flex items-center gap-6 '>
+         <Link to = "/">ჩვენს შესახებ</Link>
+         <Link to = "/">სერვისები</Link>
+         <Link to = "/">ბლოგი</Link>
+         <Link to = "/">სიახლეები</Link>
+       </nav>
+         </div>
+     
 
-            
-
-        <div className='flex flex-col justify-center space-y-4'>
-           <Link to = "/favorite" className='flex items-center  transition-transform transform hover:translate-x-2'>
-              <Heart className='mr-2 mt-[3rem]'/>
-              <span className='mt-[3rem] nav-item-name hidden'>Favorite</span>{" "}
-           </Link>
-        
-        </div>
-        </div>
-
-
-     <div className='relative'>
-       <button onClick={toggleDropdown}
-        className='flex items-center text-gray-8000 focus:outline-none'
-            
-        > {userInfo ? (
+       
          
-           <span className='text-white flex items-center '>{userInfo.username} <ChevronDown size={18} onClick={() => setDropdownOpen(!dropdownOpen)} /></span>
-           
-        ) : (
-           <></>
-        )} </button>
-     </div>
-
-
-{dropdownOpen && userInfo && (
-   <ul className='absolute bg-gray-500  bottom-12 left-12 flex flex-col gap-2 rounded-md p-2'>
-      <button className='duration-500 ease hover:bg-gray-300 rounded-md p-2' onClick={() =>  navigate('/profile')}>Profile</button>
-      <button className='duration-500 ease hover:bg-gray-300 rounded-md p-2' onClick={logoutHandler}>Logout</button>
-   </ul>
-)}
-
-
-
-        <ul className={userInfo ? "hidden" : "block"}>
-            <li>
-            <Link to = "/login" className='flex items-center  transition-transform transform hover:translate-x-2'>
-              <KeyRound className='mr-2 mt-[3rem]'/>
-              <span className='mt-[3rem] nav-item-name hidden'>Login</span>{" "}
-           </Link>
-            </li>
-
-            <li>
-            <Link to = "/register" className='flex items-center  transition-transform transform hover:translate-x-2'>
-              <UserPlus className='mr-2 mt-[3rem]'/>
-              <span className='mt-[3rem] nav-item-name hidden'>Register</span>{" "}
-           </Link>
-            </li>
-        </ul>
-  
-      
-    </div>
+         <Link to = "/login"  className='bg-[#FCC737] px-12 py-0.5 rounded-md shadow-lg text-[16px] text-black font-bold'>შესვლა</Link>
+       </div>
+   </header>
   )
 }
 
