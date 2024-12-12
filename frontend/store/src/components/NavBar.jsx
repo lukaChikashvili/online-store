@@ -45,9 +45,9 @@ const NavBar = () => {
 
 
   return (
-   <header className='w-full h-[5rem] flex items-center justify-between px-[4rem] bg-[#191919]  text-white '>
+   <header className='w-full h-[5rem] flex items-center justify-between px-[4rem]   '>
        <div>
-         <h1 className='text-[#FCC737] font-bold text-3xl' >BAIA</h1>
+         <h1 className='text-[#81BFDA] font-bold text-3xl' >BAIA</h1>
        </div>
 
 
@@ -66,7 +66,7 @@ const NavBar = () => {
 
        
          
-         <Link to = "/login"  className='bg-[#FCC737] px-12 py-0.5 rounded-md shadow-lg text-[16px] text-black font-bold'>შესვლა</Link>
+         <Link to = "/login"  className='bg-[#81BFDA] px-12 py-0.5 rounded-md shadow-lg text-[16px] text-white font-bold'>შესვლა</Link>
        </div>
    </header>
   )
