@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDeleteUserMutation, useGetUsersQuery } from '../../redux/api/userSlice'
+import { Trash2 } from 'lucide-react';
 
 const UserList = () => {
    
@@ -12,6 +13,16 @@ const UserList = () => {
        
     }, [refetch]);
 
+    const deleteHandler  = async (id) => {
+        if(window.confirm('დარწმუნებული ხარ?')) {
+            try {
+               await deleteUser(id);
+            } catch (error) {
+                console.log(error.data.message)
+            }
+        }
+    }
+
 
   return (
     <div className='mt-[4rem]'>
@@ -22,6 +33,7 @@ const UserList = () => {
                 <th className='px-4 py-2 text-left' >სახელი</th>
                 <th className='px-4 py-2 text-left' >ელ-ფოსტა</th>
                 <th className='px-4 py-2 text-left' >ადმინი</th>
+                <th className='px-4 py-2 text-left' ></th>
             </tr>
          </thead>
 
@@ -41,7 +53,17 @@ const UserList = () => {
                   </td>
 
                   <td className='px-4 py-2'>
-                    {user.isAdmin ? "ადმინი" : "არა არის ადმინი"}
+                    {user.isAdmin ? "ადმინი" : "არ არის ადმინი"}
+                  </td>
+
+                  <td className='px-4 py-2'>
+                     {!user.isAdmin && (
+                        <div className='flex'>
+                          <button onClick={() => deleteHandler(user._id)}>
+                             <Trash2 className='text-red-600'/>
+                          </button>
+                        </div>
+                     )}
                   </td>
                </tr>
             ))}
