@@ -47,7 +47,7 @@ const NavBar = () => {
   return (
    <header className='w-full h-[5rem] flex items-center justify-between px-[4rem]   '>
        <div>
-         <h1 className='text-[#81BFDA] font-bold text-3xl' >BAIA</h1>
+         <h1 className='text-blue font-bold text-3xl' >BAIA</h1>
        </div>
 
 
@@ -66,7 +66,10 @@ const NavBar = () => {
 
        
          
-         <Link to = "/login"  className='bg-[#81BFDA] px-12 py-0.5 rounded-md shadow-lg text-[16px] text-white font-bold'>შესვლა</Link>
+         <button onClick={() => navigate('/login')} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
+      <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
+      <span className="relative z-10 text-md">შესვლა</span>
+    </button>
        </div>
    </header>
   )
