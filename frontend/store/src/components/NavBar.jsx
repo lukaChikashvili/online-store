@@ -36,7 +36,7 @@ const NavBar = () => {
           
          await logoutApiCall().unwrap();
          dispatch(logout());
-         navigate('/login');
+         navigate('/');
 
       } catch (error) {
          console.log(error)
@@ -65,11 +65,18 @@ const NavBar = () => {
      
 
        
-         
-         <button onClick={() => navigate('/login')} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
-      <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
-      <span className="relative z-10 text-md">შესვლა</span>
-    </button>
+         {userInfo ? (
+           <button onClick={logoutHandler} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
+           <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
+           <span className="relative z-10 text-md">გამოსვლა</span>
+         </button>
+         ) : (
+            <button onClick={() => navigate('/login')} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
+            <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
+            <span className="relative z-10 text-md">შესვლა</span>
+          </button>
+         )}
+        
        </div>
    </header>
   )

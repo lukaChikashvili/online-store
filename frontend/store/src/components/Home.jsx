@@ -19,7 +19,7 @@ const Home = () => {
       
       <div className=' bottom-12 flex items-center gap-12 justify-center mt-[30rem] '>
            {benefits.map((value) => (
-            <div className='cursor-pointer flex flex-col items-center gap-4 justify-center text-slate-700 font-semibold bg-blue w-[15rem] h-[8rem] rounded-lg shadow-lg shadow-gray-500'>
+            <div key={value.id} className='cursor-pointer flex flex-col items-center gap-4 justify-center text-slate-700 font-semibold bg-blue w-[15rem] h-[8rem] rounded-lg shadow-lg shadow-gray-500'>
                 <span >{value.icon}</span>
                 <h2>{value.title}</h2>
 
