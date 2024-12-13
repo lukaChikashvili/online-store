@@ -66,11 +66,32 @@ const removeBlog = asyncHandler(async(req, res) => {
     } catch (error) {
         res.json(error.message);
     }
+});
+
+// blogs by id
+const fetchBlogsById = asyncHandler(async(req, res) => {
+    try {
+
+        const blog = await Blog.findById(req.params.id);
+
+        if(blog) {
+            return res.json(blog);
+        }else {
+            res.status(404);
+            throw new Error('blog not found');
+        }
+        
+    } catch (error) {
+        console.error(error);
+        res.status(404).json({error: "blog not found"});
+    }
 })
+
 
 
 module.exports = {
     createBlog,
     updateBlog,
-    removeBlog
+    removeBlog,
+    fetchBlogsById
 }
