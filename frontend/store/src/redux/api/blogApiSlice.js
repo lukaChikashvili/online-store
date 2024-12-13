@@ -31,7 +31,7 @@ export const blogApiScice = apiSlice.injectEndpoints({
             })
         }),
 
-        uploadBlogImage:builder.mutation({
+        uploadBlogImage: builder.mutation({
           query: (data) => ({
             url: `${UPLOAD_URL}`,
             method: 'POST',
