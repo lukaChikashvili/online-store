@@ -87,11 +87,68 @@ const fetchBlogsById = asyncHandler(async(req, res) => {
     }
 })
 
+// fetch all blogs
+const fetchAllBlogs = asyncHandler(async(req, res) => {
+   try {
+      
+      const blogs = await Blog.find({});
+      res.json(blogs);
+
+   } catch (error) {
+      console.error(error);
+      res.status(500).json({error: "server error"});
+   }
+});
+
+// add blog review
+const addBlogReview = asyncHandler(async(req, res) => {
+   try {
+
+       const { rating, comment} = req.body;
+       const blog = await Blog.findById(req.params.id);
+
+       if(blog) {
+        const alreadyReviewed = blog.reviews.find(r => r.user.toString() === req.user._id.toString());
+
+        if(alreadyReviewed) {
+            res.status(400);
+            throw new Error("blog is already revied");
+
+        }
+
+        const review = {
+            name: req.user.username,
+            rating: Number(rating),
+            comment,
+            user: req.user._id
+        };
+
+
+        blog.reviews.push(review);
+        blog.numReviews = blog.reviews.length;
+
+         blog.rating = blog.reviews.reduce((acc, item) => item.rating + acc, 0) / blog.reviews.length;
+
+         await blog.save();
+         res.status(201).json({message: "review added"});
+
+       }else {
+        res.status(404);
+        throw new Error("review not ");
+       }
+        
+   } catch (error) {
+    console.error(error);
+    res.status(400).json(error.message);
+   }
+})
 
 
 module.exports = {
     createBlog,
     updateBlog,
     removeBlog,
-    fetchBlogsById
+    fetchBlogsById,
+    fetchAllBlogs,
+    addBlogReview
 }
