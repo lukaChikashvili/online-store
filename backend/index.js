@@ -24,10 +24,10 @@ app.use(cookieParser());
 
 app.use('/api', routes);
 app.use('/api/blogs', blogRoutes);
-app.use('/api/uploads', uploadRoutes);
+app.use('/api/upload', uploadRoutes);
 
-const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname + '/uploads')));
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.listen(port, () => console.log('server is running'));
 
