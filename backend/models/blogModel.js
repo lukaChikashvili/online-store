@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 
 const blogSchema = mongoose.Schema({
     name: {type: String, required: true},
-    comment: {type: String, required: true},
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

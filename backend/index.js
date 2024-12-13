@@ -4,6 +4,8 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const connectDB  = require('./config/db');
 const { routes } = require('./routes/route');
+const { blogRoutes } = require('./routes/blogRoutes');
+
 
 
 
@@ -19,6 +21,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
 app.use('/api', routes);
+app.use('/api/blogs', blogRoutes);
 
 app.listen(port, () => console.log('server is running'));
 
