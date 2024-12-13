@@ -56,7 +56,10 @@ const NavBar = () => {
        <div className='flex items-center gap-12 text-lg'>
          <div>
           {userInfo && userInfo.isAdmin ? (
+            <nav className='flex gap-8'>
             <Link to = "/admin/userlist" >ყველა მომხმარებელი</Link>
+            <Link to = "/admin/bloglist" >შექმენი ბლოგი</Link>
+            </nav>
           ) : (
             <nav className='flex items-center gap-6 '>
             <Link to = "/">ჩვენს შესახებ</Link>

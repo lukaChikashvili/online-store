@@ -13,6 +13,7 @@ import Profile from './components/Profile.jsx'
 import Home from './components/Home.jsx'
 import AdminRoutes from './pages/admin/AdminRoutes.jsx'
 import UserList from './pages/admin/UserList.jsx'
+import BlogList from './pages/admin/BlogList.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
 
       <Route path = '/admin' element = {<AdminRoutes />}>
         <Route path = 'userlist' element = {<UserList />} />
+        <Route path = 'bloglist' element = {<BlogList />} />
       </Route>
     </Route>
    
