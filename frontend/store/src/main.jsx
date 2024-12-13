@@ -17,6 +17,7 @@ import BlogList from './pages/admin/BlogList.jsx'
 import BlogUpdate from './pages/admin/BlogUpdate.jsx'
 import AllBlogs from './pages/admin/AllBlogs.jsx'
 import Blogs from './components/Blogs.jsx'
+import BlogDetail from './components/BlogDetail.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,7 +30,10 @@ const router = createBrowserRouter(
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
 
-      <Route path='/blogs' element = {<Blogs />}/>
+      <Route path='/blogs' element = {<Blogs />} />
+      <Route path='/blogs/detail/:id' element = {<BlogDetail />} />
+      
+      
 
       <Route path = '/admin' element = {<AdminRoutes />}>
         <Route path = 'userlist' element = {<UserList />} />
