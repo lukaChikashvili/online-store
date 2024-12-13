@@ -54,10 +54,23 @@ const updateBlog = asyncHandler(async(req, res) => {
     } catch (error) {
         res.status(400).json(error.message);
     }
+});
+
+// remove blog
+const removeBlog = asyncHandler(async(req, res) => {
+    try {
+        
+       const blog = await Blog.findByIdAndDelete(req.params.id);
+        res.json(blog);
+
+    } catch (error) {
+        res.json(error.message);
+    }
 })
 
 
 module.exports = {
     createBlog,
-    updateBlog
+    updateBlog,
+    removeBlog
 }
