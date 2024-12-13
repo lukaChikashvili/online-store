@@ -65,7 +65,7 @@ const NavBar = () => {
             <nav className='flex items-center gap-6 '>
             <Link to = "/">ჩვენს შესახებ</Link>
             <Link to = "/">სერვისები</Link>
-            <Link to = "/">ბლოგი</Link>
+            <Link to = "/blogs">ბლოგი</Link>
             <Link to = "/">სიახლეები</Link>
           </nav>
           )}

@@ -24,11 +24,11 @@ export const blogApiScice = apiSlice.injectEndpoints({
         }),
 
         updateBlog: builder.mutation({
-            query: (blogId, formData) => ({
+            query: ({blogId, formData}) => ({
                url: `${BLOGS_URL}/${blogId}`,
                method: 'PUT',
                body: formData
-            })
+            }),
         }),
 
         uploadBlogImage: builder.mutation({
@@ -36,14 +36,14 @@ export const blogApiScice = apiSlice.injectEndpoints({
             url: `${UPLOAD_URL}`,
             method: 'POST',
             body: data
-          })
+          }),
         }),
 
         deleteBlog: builder.mutation({
             query: (blogId) => ({
                 url: `${BLOGS_URL}/${blogId}`,
                 method: 'DELETE',
-            })
+            }),
         }),
 
         createReview: builder.mutation({

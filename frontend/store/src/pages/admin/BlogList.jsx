@@ -22,7 +22,7 @@ const BlogList = () => {
        try {
            const res = await uploadBlogImage(formData).unwrap();
            setImage(res.image);
-           console.log(res);
+           console.log(res.image);
            setImgUrl(res.image);
            
        } catch (error) {
@@ -86,8 +86,8 @@ const BlogList = () => {
           </button>
         </div>
 
-        <div>
-           {image && <img src = {imgUrl} className='absolute w-full' />} 
+        <div className='relative w-full bottom-[10rem] left-[10rem]'>
+          {imgUrl && <img src = {imgUrl} className='w-[25rem] absolute rounded-md shadow-lg' />} 
         </div>
     </div>
   )

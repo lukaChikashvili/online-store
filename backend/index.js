@@ -27,7 +27,7 @@ app.use('/api/blogs', blogRoutes);
 app.use('/api/upload', uploadRoutes);
 
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 app.listen(port, () => console.log('server is running'));
 

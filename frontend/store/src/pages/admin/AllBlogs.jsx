@@ -15,13 +15,13 @@ const AllBlogs = () => {
             <h1 className='text-3xl font-bold'>ყველა ბლოგი ({blogs.length})</h1>
         </div>
 
-        <div>
+        <div className='mt-8 flex items-center flex-wrap gap-12 justify-center'>
             {blogs.map((value) => (
                   <Link key = {value._id} to = {`/admin/blog/update/${value._id}`}>
-                     <div>
-                        <img src = {value.image} />
+                     <div className='flex flex-col items-center gap-4 bg-slate-300 w-[30rem] p-4 rounded-md shadow-lg'>
+                        <img src = {value.image} className='w-[15rem] rounded-md shadow-lg' />
                         <h1 className='text-2xl text-blue font-bold'>{value.name}</h1>
-                        <p>{value.text}</p>
+                        <p>{value.text.substring(0, 70)}...</p>
                      </div>
                   </Link>
             ))}
