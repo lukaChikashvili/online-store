@@ -87,7 +87,7 @@ const BlogList = () => {
         </div>
 
         <div>
-           {image && <img src = {image} className='absolute w-full' />} 
+           {image && <img src = {imgUrl} className='absolute w-full' />} 
         </div>
     </div>
   )
