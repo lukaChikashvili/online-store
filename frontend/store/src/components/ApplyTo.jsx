@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
+//import PhoneInput from 'react-phone-number-input'
+//import 'react-phone-number-input/style.css'
 import { useCreateApplyMutation } from '../redux/api/applyApiSlice';
 import { useSelector } from 'react-redux';
 import {  useNavigate } from 'react-router';
@@ -58,14 +58,14 @@ const ApplyTo = () => {
            <label htmlFor='email'>ელ-ფოსტა</label>
            <input type = "email"  value = {email} onChange={(e) => setEmail(e.target.value)} className='p-2  w-[30rem] border rounded-lg bg-slate-200 outline-none shadow-lg'/>
 
-           <label htmlFor='phone'>ტელეფონის ნომერი</label>
+          {/*    <label htmlFor='phone'>ტელეფონის ნომერი</label>
            <PhoneInput
               value = {phone} onChange={(e) => setPhone(e)}
               placeholder="შეიყვანეთ ტელეფონის ნომერი"
               className='p-2  w-[30rem] border rounded-lg bg-slate-200 outline-none shadow-lg'
               
               />
-
+*/}
         <label htmlFor="category">კატეგორია</label>
          <select
           id="category"
