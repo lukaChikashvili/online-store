@@ -6,7 +6,9 @@ const cookieParser = require('cookie-parser');
 const connectDB  = require('./config/db');
 const { routes } = require('./routes/route');
 const { blogRoutes } = require('./routes/blogRoutes');
-const { uploadRoutes } = require('./routes/uploadRoutes')
+const { uploadRoutes } = require('./routes/uploadRoutes');
+const { applyRoutes } = require('./routes/applyRoutes');
+
 
 
 
@@ -25,7 +27,7 @@ app.use(cookieParser());
 app.use('/api', routes);
 app.use('/api/blogs', blogRoutes);
 app.use('/api/upload', uploadRoutes);
-
+app.use('/api/apply', applyRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
