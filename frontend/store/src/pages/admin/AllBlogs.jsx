@@ -22,6 +22,7 @@ const AllBlogs = () => {
                         <img src = {value.image} className='w-[15rem] h-[15rem] rounded-md shadow-lg object-cover' />
                         <h1 className='text-2xl text-blue font-bold duration-500 ease hover:underline'>{value.name}</h1>
                         <p>{value.text.substring(0, 70)}...</p>
+                       
                      </div>
                   </Link>
             ))}

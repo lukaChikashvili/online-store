@@ -22,7 +22,6 @@ const BlogList = () => {
        try {
            const res = await uploadBlogImage(formData).unwrap();
            setImage(res.image);
-           console.log(res.image);
            setImgUrl(res.image);
            
        } catch (error) {
