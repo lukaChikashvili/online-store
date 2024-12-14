@@ -3,17 +3,16 @@ import { useNavigate, useParams } from 'react-router'
 import { useCreateReviewMutation, useGetSpecificBlogQuery } from '../redux/api/blogApiSlice';
 import { useSelector } from 'react-redux';
 import { ArrowLeft } from 'lucide-react';
+import Comments from './Comments';
 
 
 const BlogDetail = () => {
     const { id: blogId} = useParams();
     const navigate = useNavigate();
 
-    const {data: blogs, isLoading, refetch} = useGetSpecificBlogQuery(blogId);
+    const {data: blogs} = useGetSpecificBlogQuery(blogId);
 
-    const { userInfo } = useSelector(state => state.auth);
 
-    const [ createReview ] = useCreateReviewMutation();
 
 
     
@@ -25,9 +24,12 @@ const BlogDetail = () => {
         <h1 className='text-center text-3xl text-blue font-bold'>{blogs?.name}</h1>
          <p className='w-full text-xl leading-[2.5rem]'>{blogs?.text}</p>
         </div>
-         <img src = {blogs?.image} className='w-[30rem] h-[30rem] -mt-[50rem] rounded-md shadow-lg' />
+
+         <img src = {blogs?.image} className='w-[30rem] h-[30rem]  rounded-md shadow-lg' />
          
        </div>
+
+       <Comments />
     </div>
   )
 }

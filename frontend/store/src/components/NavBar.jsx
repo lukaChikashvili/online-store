@@ -71,6 +71,9 @@ const NavBar = () => {
           )}
          </div>
      
+         <h2 className='text-blue font-bold cursor-pointer'>{userInfo?.isAdmin ? "ადმინი" : userInfo?.username}</h2>
+
+     
 
        
          {userInfo ? (

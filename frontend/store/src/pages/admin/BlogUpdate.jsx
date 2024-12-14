@@ -7,7 +7,7 @@ const BlogUpdate = () => {
   const { id: blogId} = useParams();
   const navigate = useNavigate();
 
-  const {data: blogs, isLoading, refetch} = useGetSpecificBlogQuery(blogId);
+  const {data: blogs } = useGetSpecificBlogQuery(blogId);
 
     const [image, setImage] = useState(blogs?.image || '');
     const [name, setName] = useState(blogs?.name || '');
