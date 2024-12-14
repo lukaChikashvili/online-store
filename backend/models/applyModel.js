@@ -17,7 +17,7 @@ const applySchema = new mongoose.Schema({
     },
 
     phone: {
-        type: String,
+        type: Number,
         required: true
     },
 
@@ -27,7 +27,7 @@ const applySchema = new mongoose.Schema({
     },
 
     visit: {
-        type: Number,
+        type: String,
         required: true
     },
 

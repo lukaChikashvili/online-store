@@ -19,11 +19,10 @@ const applyTo = asyncHandler(async(req, res) => {
             phone,
             category,
             visit,
-            user: {
-                id: req.user._id,
-                name: req.user.username,
+            user: req.user._id,
+            username: req.user.username,
                 
-            }
+            
         });
         
         await appointment.save();
@@ -31,7 +30,7 @@ const applyTo = asyncHandler(async(req, res) => {
         res.status(201).json({ message: "You booked an appointment successfully" });
 
     } catch (error) {
-        res.status(400).json({error: message});
+        res.status(400).json({ error: error.message });
     }
 });
 
