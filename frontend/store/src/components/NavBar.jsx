@@ -66,7 +66,7 @@ const NavBar = () => {
             <Link to = "/">ჩვენს შესახებ</Link>
             <Link to = "/">სერვისები</Link>
             <Link to = "/blogs">ბლოგი</Link>
-            <Link to = "/">სიახლეები</Link>
+            <Link to = "/">შემოგვიერთდი</Link>
           </nav>
           )}
          </div>

@@ -9,7 +9,6 @@ const Comments = () => {
 
     const { id: blogId} = useParams();
     const {data: blogs, refetch} = useGetSpecificBlogQuery(blogId);
-     const { userInfo } = useSelector(state => state.auth);
     const [comment, setComment] = useState('');
 
     const [createReview] = useCreateReviewMutation();
