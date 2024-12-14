@@ -41,6 +41,7 @@ const BlogUpdate = () => {
       }
    }
 
+  // update blog
 
    const handleSubmit = async(e) => {
     e.preventDefault();
@@ -66,7 +67,24 @@ const BlogUpdate = () => {
   }
 
 
+// delete blog
 
+const handleDelete = async () => {
+  try {
+
+      let answer = window.confirm("ნამდვილად გსურთ წაშლა?");
+      if(!answer) return;
+
+      const { data } = deleteBlog(blogId);
+      if(data?.error) {
+        console.log(error);
+      }
+      navigate('/admin/allBlogs');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
     
   return (
     <div className='w-full flex items-center justify-center px-[15rem] mt-4'>
@@ -100,7 +118,7 @@ const BlogUpdate = () => {
             <span className="relative z-10 text-md">რედაქტირება</span>
           </button>
 
-          <button  className=" w-[14.5rem] relative group overflow-hidden px-8 py-1 bg-red-500 text-white rounded-md">
+          <button onClick={handleDelete} className=" w-[14.5rem] relative group overflow-hidden px-8 py-1 bg-red-500 text-white rounded-md">
             <span className="absolute inset-0 bg-red-600 transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
             <span className="relative z-10 text-md">წაშლა</span>
           </button>
