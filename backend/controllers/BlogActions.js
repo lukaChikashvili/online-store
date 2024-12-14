@@ -104,7 +104,7 @@ const fetchAllBlogs = asyncHandler(async(req, res) => {
 const addBlogReview = asyncHandler(async(req, res) => {
    try {
 
-       const { rating, comment} = req.body;
+       const {  comment} = req.body;
        const blog = await Blog.findById(req.params.id);
 
        if(blog) {
@@ -118,7 +118,7 @@ const addBlogReview = asyncHandler(async(req, res) => {
 
         const review = {
             name: req.user.username,
-            rating: Number(rating),
+            
             comment,
             user: req.user._id
         };
@@ -127,7 +127,7 @@ const addBlogReview = asyncHandler(async(req, res) => {
         blog.reviews.push(review);
         blog.numReviews = blog.reviews.length;
 
-         blog.rating = blog.reviews.reduce((acc, item) => item.rating + acc, 0) / blog.reviews.length;
+         
 
          await blog.save();
          res.status(201).json({message: "review added"});

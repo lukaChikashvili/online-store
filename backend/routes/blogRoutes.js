@@ -12,7 +12,7 @@ const { createBlog, updateBlog, removeBlog, fetchBlogsById, fetchAllBlogs, addBl
 router.route('/').post(authenticate, authorizeAdmin, formidable(), createBlog);
 
 router.route('/allBlogs').get(fetchAllBlogs);
-router.route('/:id/reviews').post(authenticate, authorizeAdmin, checkId, addBlogReview);
+router.route('/:id/reviews').post(authenticate, checkId, addBlogReview);
 
 router.route('/:id').get(fetchBlogsById).put(authenticate, authorizeAdmin, formidable(), updateBlog)
 .delete(authenticate, authorizeAdmin, removeBlog);

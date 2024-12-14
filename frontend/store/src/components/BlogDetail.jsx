@@ -7,6 +7,10 @@ import Comments from './Comments';
 
 
 const BlogDetail = () => {
+
+  const { userInfo } = useSelector(state => state.auth);
+
+
     const { id: blogId} = useParams();
     const navigate = useNavigate();
 
@@ -29,7 +33,7 @@ const BlogDetail = () => {
          
        </div>
 
-       <Comments />
+      <Comments />
     </div>
   )
 }
