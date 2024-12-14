@@ -20,7 +20,6 @@ const applyTo = asyncHandler(async(req, res) => {
             category,
             visit,
             user: req.user._id,
-            username: req.user.username,
                 
             
         });
@@ -35,8 +34,32 @@ const applyTo = asyncHandler(async(req, res) => {
 });
 
 
+const allBooks = asyncHandler(async(req, res) => {
+    try {
+      
+        const applications = await Apply.find({});
+
+       
+        res.status(200).json({
+            success: true,
+            data: applications
+        });
+    } catch (error) {
+        
+        res.status(500).json({
+            success: false,
+            message: "Server Error",
+            error: error.message
+        });
+    }
+    
+})
+
+
 
 
 module.exports = {
-    applyTo
+    applyTo,
+    allBooks
+    
 }

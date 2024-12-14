@@ -19,6 +19,7 @@ import AllBlogs from './pages/admin/AllBlogs.jsx'
 import Blogs from './components/Blogs.jsx'
 import BlogDetail from './components/BlogDetail.jsx'
 import ApplyTo from './components/ApplyTo.jsx'
+import Aplications from './pages/admin/Aplications.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
         <Route path = 'bloglist' element = {<BlogList />} />
          <Route path = 'allBlogs' element = {<AllBlogs />} />
         <Route path = 'blog/update/:id' element = {<BlogUpdate /> } />
+        <Route path = 'aplications' element = {<Aplications />} />
       </Route>
     </Route>
    

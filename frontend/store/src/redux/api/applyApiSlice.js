@@ -11,11 +11,17 @@ export const applyApiSlice = apiSlice.injectEndpoints({
               method: 'POST',
               body: data
             })
+        }),
+
+        allAplications: builder.query({
+            query: () => ({
+                url: `${APPLY_URL}/aplications`
+            })
         })
     })
 });
 
 
 export const {
-    useCreateApplyMutation
+    useCreateApplyMutation, useAllAplicationsQuery
 } = applyApiSlice;

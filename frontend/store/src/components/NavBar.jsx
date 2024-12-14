@@ -60,6 +60,7 @@ const NavBar = () => {
             <Link to = "/admin/userlist" >ყველა მომხმარებელი</Link>
             <Link to = "/admin/bloglist" >შექმენი ბლოგი</Link>
             <Link to = "/admin/allBlogs" >ყველა ბლოგი</Link>
+            <Link to = "/admin/aplications" >ყველა აბონიმენტი</Link>
             </nav>
           ) : (
             <nav className='flex items-center gap-6 '>
@@ -71,7 +72,7 @@ const NavBar = () => {
           )}
          </div>
      
-         <h2 className='text-blue font-bold cursor-pointer'>{userInfo?.isAdmin ? "ადმინი" : userInfo?.username}</h2>
+         <h2 onClick={() => navigate('/profile')} className='text-blue font-bold cursor-pointer'>{userInfo?.isAdmin ? "ადმინი" : userInfo?.username}</h2>
 
      
 

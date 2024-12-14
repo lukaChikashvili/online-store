@@ -26,6 +26,7 @@ const UserList = () => {
 
   return (
     <div className='mt-[4rem]'>
+      <h1 className='text-center text-2xl font-bold mb-4'>ჩვენი მომხმარებლები ({users?.length})</h1>
         <table className='w-full md:w-4/5 mx-auto '>
          <thead className='bg-blue'>
             <tr>

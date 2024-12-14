@@ -3,6 +3,7 @@ import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { useCreateApplyMutation } from '../redux/api/applyApiSlice';
 import { useSelector } from 'react-redux';
+import {  useNavigate } from 'react-router';
 
 const ApplyTo = () => {
   
@@ -17,6 +18,9 @@ const ApplyTo = () => {
     const { userInfo } = useSelector(state => state.auth);
 
   const  [err, setErr] = useState('');
+
+    const navigate = useNavigate();
+
     
     const bookVisit = async() => {
         try {
@@ -25,8 +29,10 @@ const ApplyTo = () => {
                 setErr('აბონიმენტის დასაჯავშნად გთხოვთ გაიაროთ ავტორიზაცია');
 
             }else {
-                const res = await createApply({name, surname, email, phone, category, visit}).unwrap();
-                setErr('თქვენ წარმატებით დაჯავშნეთ აბონიმენტი')
+                 await createApply({name, surname, email, phone, category, visit}).unwrap();
+                setErr('თქვენ წარმატებით დაჯავშნეთ აბონიმენტი');
+                 navigate('/profile');
+                
             }
            
 
