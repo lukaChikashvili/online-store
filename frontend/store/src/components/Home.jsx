@@ -1,5 +1,6 @@
 import banner from '../assets/banner.jpg'
 import { BicepsFlexed, Dumbbell, Users, Weight } from 'lucide-react';
+import About from './About';
 
 const Home = () => {
 
@@ -28,6 +29,9 @@ const Home = () => {
                 
            ))}
       </div>
+
+     <About />
+
     </div>
   );
 };
