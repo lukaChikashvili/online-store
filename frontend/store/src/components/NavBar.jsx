@@ -36,6 +36,7 @@ const NavBar = () => {
           
          await logoutApiCall().unwrap();
          dispatch(logout());
+         localStorage.removeItem('jwt');
          navigate('/');
 
       } catch (error) {

@@ -77,7 +77,7 @@ const loginUser = asyncHandler(async(req, res) => {
 
 // logout user
 const logoutUser = asyncHandler(async(req, res) => {
-    localStorage.removeItem('jwt');
+     
 
     res.status(200).json({message: "logged out successfully"});
 
