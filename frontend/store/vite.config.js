@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": "https://baia-jir6.onrender.com",
-      "/uploads": "https://baia-jir6.onrender.com",
+      
     }
   }
 })
