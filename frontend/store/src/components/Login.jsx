@@ -33,10 +33,11 @@ const Login = () => {
 
         try {
           const res = await login({ email, password }).unwrap();
-          
+            
           if (res.token) {
              
               dispatch(setCredentials({...res}));
+              localStorage.setItem('jwt', res.token );
           } else {
               console.error('Token not found in response');
           }
