@@ -36,8 +36,8 @@ const Login = () => {
           console.log(res.token)
             
           if (res.token) {
-             localStorage.setItem('jwt', res.token );
-              dispatch(setCredentials({...res}));
+           
+              dispatch(setCredentials({...res}, {token: res.token}));
               
           } else {
               console.error('Token not found in response');
