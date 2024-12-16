@@ -33,7 +33,7 @@ const Login = () => {
 
         try {
              const res = await login({ email, password }).unwrap();
-             console.log(res);
+             console.log(res.token);
              localStorage.setItem('jwt', res.token);
              dispatch(setCredentials({...res}))
         } catch (error) {

@@ -26,7 +26,7 @@ const createUser = asyncHandler(async(req, res) => {
 
    try {
         await newUser.save();
-        const { accessToken, refreshToken } = createToken.generateTokens(existingUser);
+        const token = createToken.generateToken(newUser._id);
 
         res.status(201).json({
 
@@ -34,8 +34,7 @@ const createUser = asyncHandler(async(req, res) => {
             username: newUser.username, 
             email: newUser.email, 
             isAdmin: newUser.isAdmin, 
-            accessToken, 
-            refreshToken
+            token
         })
 
    } catch (error) {
@@ -56,16 +55,15 @@ const loginUser = asyncHandler(async(req, res) => {
       const isPasswordValid = await bcrypt.compare(password, existingUser.password);
 
       if(isPasswordValid) {
-        const { accessToken, refreshToken } = createToken.generateTokens(existingUser);
-        
+        const token = createToken.generateToken(existingUser._id);
+
          res.status(201).json({
 
             _id: existingUser._id,
             username: existingUser.username, 
             email: existingUser.email, 
             isAdmin: existingUser.isAdmin,
-            accessToken, 
-            refreshToken
+            token
         
         });
             
@@ -76,8 +74,6 @@ const loginUser = asyncHandler(async(req, res) => {
       }
   }
 });
-
-
 
 // logout user
 const logoutUser = asyncHandler(async(req, res) => {
@@ -215,6 +211,5 @@ module.exports = {
     updateCurrentProfile,
     deleteUser,
     getUserById,
-    updateUser, 
-    
+    updateUser
 }
