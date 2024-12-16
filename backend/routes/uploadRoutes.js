@@ -4,9 +4,11 @@ const multer = require('multer');
 
 const router = express.Router();
 
+const uploadPath = path.join(__dirname, 'uploads');
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, "uploads/");
+      cb(null, uploadPath);
     },
   
     filename: (req, file, cb) => {
@@ -28,6 +30,8 @@ const storage = multer.diskStorage({
       cb(new Error("Images only"), false);
     }
   };
+
+  console.log(uploadPath);
   
   const upload = multer({ storage, fileFilter });
   const uploadSingleImage = upload.single("image");
@@ -37,9 +41,10 @@ const storage = multer.diskStorage({
       if (err) {
         res.status(400).send({ message: err.message });
       } else if (req.file) {
+        console.log('File saved at:', req.file.path);
         res.status(200).send({
           message: "Image uploaded successfully",
-          image: `/${req.file.path.replace('\\', '/')}`
+          image: `/uploads/${path.basename(req.file.path)}`
         });
       } else {
         res.status(400).send({ message: "No image file provided" });

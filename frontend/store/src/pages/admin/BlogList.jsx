@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
 import { useCreateBlogMutation, useUploadBlogImageMutation } from '../../redux/api/blogApiSlice';
+import { BASE_URL, UPLOAD_URL } from '../../redux/constants';
 
 const BlogList = () => {
 
@@ -22,7 +23,9 @@ const BlogList = () => {
        try {
            const res = await uploadBlogImage(formData).unwrap();
            setImage(res.image);
-           setImgUrl(res.image);
+           setImgUrl(`${BASE_URL}${res.image}`);
+         console.log(`${BASE_URL}${res.image}`)
+          
            
        } catch (error) {
           console.log(error);
