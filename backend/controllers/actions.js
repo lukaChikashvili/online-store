@@ -26,7 +26,7 @@ const createUser = asyncHandler(async(req, res) => {
 
    try {
         await newUser.save();
-        const token = createToken.generateToken(newUser._id);
+        const { accessToken, refreshToken } = createToken.generateTokens(existingUser);
 
         res.status(201).json({
 
@@ -34,7 +34,8 @@ const createUser = asyncHandler(async(req, res) => {
             username: newUser.username, 
             email: newUser.email, 
             isAdmin: newUser.isAdmin, 
-            token
+            accessToken, 
+            refreshToken
         })
 
    } catch (error) {
