@@ -55,7 +55,7 @@ const loginUser = asyncHandler(async(req, res) => {
       const isPasswordValid = await bcrypt.compare(password, existingUser.password);
 
       if(isPasswordValid) {
-        const token = createToken.generateToken(existingUser._id);
+        const { accessToken, refreshToken } = createToken.generateTokens(existingUser);
         
          res.status(201).json({
 
@@ -63,7 +63,8 @@ const loginUser = asyncHandler(async(req, res) => {
             username: existingUser.username, 
             email: existingUser.email, 
             isAdmin: existingUser.isAdmin,
-            token
+            accessToken, 
+            refreshToken
         
         });
             
@@ -74,6 +75,8 @@ const loginUser = asyncHandler(async(req, res) => {
       }
   }
 });
+
+
 
 // logout user
 const logoutUser = asyncHandler(async(req, res) => {
@@ -211,5 +214,6 @@ module.exports = {
     updateCurrentProfile,
     deleteUser,
     getUserById,
-    updateUser
+    updateUser, 
+    
 }

@@ -7,7 +7,8 @@ const { createUser,
         updateCurrentProfile,
         deleteUser,
         getUserById,
-        updateUser} = require('../controllers/actions');
+        updateUser,
+        refreshAccessToken} = require('../controllers/actions');
 
 const { authenticate, authorizeAdmin } = require('../middlewares/authHandler');
 const router = express.Router();
@@ -21,5 +22,7 @@ router.route('/profile').get(authenticate, getCurrentProfile).put(authenticate, 
 router.route('/:id').delete(authenticate, authorizeAdmin, deleteUser).
                      get(authenticate, authorizeAdmin, getUserById).
                      put(authenticate, authorizeAdmin, updateUser);
+
+
 
 module.exports = {routes: router}
