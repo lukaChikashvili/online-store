@@ -13,7 +13,7 @@ const AllBlogs = () => {
 
     useEffect(() => {
         console.log(blogs)
-    })
+    }, [])
   return (
     <div className='w-full px-[10rem] mt-8'>
         <div>
