@@ -9,9 +9,7 @@ const UserList = () => {
     
     const [deleteUser] = useDeleteUserMutation();
 
-    if(isLoading) {
-      return <Loader />
-  }
+ 
 
 
     useEffect(() => {

@@ -28,10 +28,8 @@ const Login = () => {
             navigate(redirect)
         }
 
-        if(isLoading) {
-          return <Loader />
-        }
-    }, [navigate, redirect, userInfo, isLoading]);
+       
+    }, [navigate, redirect, userInfo]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
