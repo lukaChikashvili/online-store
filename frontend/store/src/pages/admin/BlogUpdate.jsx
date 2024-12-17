@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { useDeleteBlogMutation, useGetSpecificBlogQuery, useUpdateBlogMutation, useUploadBlogImageMutation } from '../../redux/api/blogApiSlice';
+import { BASE_URL } from '../../redux/constants';
 
 const BlogUpdate = () => {
 
