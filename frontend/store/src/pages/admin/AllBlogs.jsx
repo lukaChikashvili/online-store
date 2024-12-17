@@ -5,7 +5,7 @@ import { BASE_URL } from '../../redux/constants';
 import Loader from '../../components/Loader';
 
 const AllBlogs = () => {
-    const { data: blogs, isLoading,} = useAllBlogsQuery();
+    const { data: blogs, isLoading} = useAllBlogsQuery();
 
     
         if(isLoading) {
