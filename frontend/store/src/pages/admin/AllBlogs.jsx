@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAllBlogsQuery } from '../../redux/api/blogApiSlice'
 import { Loader } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -11,9 +11,7 @@ const AllBlogs = () => {
         return <Loader />
     }
 
-    useEffect(() => {
-        console.log(blogs)
-    }, [])
+    
   return (
     <div className='w-full px-[10rem] mt-8'>
         <div>
