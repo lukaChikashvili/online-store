@@ -4,17 +4,14 @@ import { Trash2 } from 'lucide-react';
 
 const UserList = () => {
    
-    const { data: users, refetch,  } = useGetUsersQuery();
+    const { data: users,   } = useGetUsersQuery();
     
     const [deleteUser] = useDeleteUserMutation();
 
  
 
 
-    useEffect(() => {
-        refetch();
-       
-    }, [refetch]);
+  
 
     const deleteHandler  = async (id) => {
         if(window.confirm('დარწმუნებული ხარ?')) {
