@@ -4,6 +4,7 @@ import { useCreateReviewMutation, useGetSpecificBlogQuery } from '../redux/api/b
 import { useSelector } from 'react-redux';
 import { ArrowLeft } from 'lucide-react';
 import Comments from './Comments';
+import { BASE_URL } from '../redux/constants';
 
 
 const BlogDetail = () => {
@@ -29,7 +30,7 @@ const BlogDetail = () => {
          <p className='w-full text-xl leading-[2.5rem]'>{blogs?.text}</p>
         </div>
 
-         <img src = {blogs?.image} className='w-[30rem] h-[30rem]  rounded-md shadow-lg' />
+         <img src = {`${BASE_URL}${blogs?.image}`} className='w-[30rem] h-[30rem]  rounded-md shadow-lg' />
          
        </div>
 

@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAllBlogsQuery } from '../../redux/api/blogApiSlice'
-import { Loader } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../redux/constants';
+import Loader from '../../components/Loader';
 
 const AllBlogs = () => {
     const { data: blogs, isLoading} = useAllBlogsQuery();
 
-    if(isLoading) {
-        return <Loader />
-    }
+    
+        if(isLoading) {
+            return <Loader />
+        }
+  
+   
 
     
   return (

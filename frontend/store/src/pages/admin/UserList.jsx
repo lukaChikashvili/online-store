@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react'
 import { useDeleteUserMutation, useGetUsersQuery } from '../../redux/api/userSlice'
 import { Trash2 } from 'lucide-react';
+import Loader from '../../components/Loader';
 
 const UserList = () => {
    
-    const { data: users, refetch, isLoading, error } = useGetUsersQuery();
+    const { data: users, refetch, isLoading } = useGetUsersQuery();
     
     const [deleteUser] = useDeleteUserMutation();
+
+    if(isLoading) {
+      return <Loader />
+  }
+
 
     useEffect(() => {
         refetch();

@@ -1,10 +1,16 @@
 import React from 'react'
 import { useGetSpecificBlogQuery } from '../redux/api/blogApiSlice';
 import { useParams } from 'react-router';
+import Loader from './Loader';
 
 const ShowComments = () => {
     const { id: blogId} = useParams();
-    const {data: blogs} = useGetSpecificBlogQuery(blogId);
+    const {data: blogs, isLoading} = useGetSpecificBlogQuery(blogId);
+
+
+    if(isLoading) {
+      return <Loader />
+  }
 
 
   return (

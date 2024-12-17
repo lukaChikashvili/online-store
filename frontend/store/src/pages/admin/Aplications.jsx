@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react'
 import { useAllAplicationsQuery } from '../../redux/api/applyApiSlice'
 import { useSelector } from 'react-redux';
+import Loader from '../../components/Loader';
+
 
 const Aplications = () => {
      
-    const { data: applies }  = useAllAplicationsQuery();
+    const { data: applies, isLoading }  = useAllAplicationsQuery();
     
  const { userInfo } = useSelector(state => state.auth);
 
+ if(isLoading) {
+  return <Loader />
+}
 
   return (
     <div className='w-full flex items-center justify-center px-[10rem] mt-16 '>
