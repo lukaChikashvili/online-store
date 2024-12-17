@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router';
 import { useLoginMutation } from '../redux/api/userSlice';
 import { Link } from 'react-router-dom';
 import { setCredentials } from '../redux/features/auth/authSlice';
+import Loader from './Loader';
 
 
 const Login = () => {
@@ -26,7 +27,11 @@ const Login = () => {
         if(userInfo) {
             navigate(redirect)
         }
-    }, [navigate, redirect, userInfo]);
+
+        if(isLoading) {
+          return <Loader />
+        }
+    }, [navigate, redirect, userInfo, isLoading]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
