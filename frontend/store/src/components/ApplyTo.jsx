@@ -44,7 +44,7 @@ const ApplyTo = () => {
 
 
   return (
-    <div className='w-full h-screen flex flex-col gap-4 items-center justify-center -mt-12 px-[10rem]'>
+    <div className='w-full h-screen flex flex-col gap-4 items-center justify-center mt-4 px-[10rem]'>
         <h1 className='text-3xl font-bold text-slate-500'>აბონიმენტის დაჯავშნა</h1>
         <span className='w-full h-[0.5px] bg-blue'></span>
         <div className='flex flex-col gap-2'>

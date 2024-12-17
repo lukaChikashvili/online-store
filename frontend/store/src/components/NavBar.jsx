@@ -1,9 +1,10 @@
-import { ArrowDown, ChevronDown, Heart, Home, HomeIcon, KeyRound, LogOut, ShoppingBag, ShoppingCart, UserPlus } from 'lucide-react';
+
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {useLogoutMutation } from '../redux/api/userSlice';
 import { logout } from '../redux/features/auth/authSlice';
+import logo from '../assets/logo.png'
 
 const NavBar = () => {
 
@@ -11,6 +12,8 @@ const NavBar = () => {
    
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [showSidebar, setShowSidebar] = useState(false);
+
+   
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
@@ -48,7 +51,7 @@ const NavBar = () => {
   return (
    <header className='w-full h-[5rem] flex items-center justify-between px-[4rem]   '>
        <div>
-         <h1 className='text-blue font-bold text-3xl' >BAIA</h1>
+         <img src = {logo} className='w-[7em] -ml-4 cursor-pointer' onClick={() => navigate('/')} />
        </div>
 
 

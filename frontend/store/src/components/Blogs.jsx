@@ -17,6 +17,8 @@ const Blogs = () => {
             </div>
             </Link>
        ))}
+
+       {blogs?.length === 0 && <p className='w-full text-xl ml-[80rem] mt-[10rem]'>პოსტები არ არის</p>}
     </div>
   )
 }
