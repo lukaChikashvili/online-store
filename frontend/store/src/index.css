@@ -81,9 +81,7 @@ nav a{
   top: 0;
   animation: animloader 0.5s linear infinite;
 }
-.loader::after {
-  animation-delay: 1s;
-}
+
 
 @keyframes animloader {
   0% {
