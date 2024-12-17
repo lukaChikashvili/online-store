@@ -12,6 +12,7 @@ const BlogUpdate = () => {
     const [image, setImage] = useState(blogs?.image || '');
     const [name, setName] = useState(blogs?.name || '');
     const [text, setText] = useState(blogs?.text || '');
+    const [imgUrl, setImgUrl] = useState(null);
 
     const [uploadBlogImage] = useUploadBlogImageMutation();
     const [updateBlog] = useUpdateBlogMutation();
@@ -34,7 +35,7 @@ const BlogUpdate = () => {
       try {
           const res = await uploadBlogImage(formData).unwrap();
           setImage(res.image);
-        
+          setImgUrl(`${BASE_URL}${res.image}`);
           
       } catch (error) {
          console.log(error);
@@ -126,7 +127,7 @@ const handleDelete = async () => {
         </div>
 
         <div className='relative w-full bottom-[10rem] left-[10rem]'>
-          {image && <img src = {image} className='w-[25rem] absolute rounded-md shadow-lg' />} 
+          {imgUrl && <img src = {imgUrl} className='w-[25rem] absolute rounded-md shadow-lg' />} 
         </div>
 
        
