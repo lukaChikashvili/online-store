@@ -13,7 +13,7 @@ const BlogUpdate = () => {
     const [image, setImage] = useState(blogs?.image || '');
     const [name, setName] = useState(blogs?.name || '');
     const [text, setText] = useState(blogs?.text || '');
-    const [imgUrl, setImgUrl] = useState(null);
+    const [imgUrl, setImgUrl] = useState(blogs?.image || '');
 
     const [uploadBlogImage] = useUploadBlogImageMutation();
     const [updateBlog] = useUpdateBlogMutation();
