@@ -16,10 +16,10 @@ const Home = () => {
 
   return (
     <div className=''>
-        <img className='absolute w-full h-[30rem] top-8 left-0 -z-10 object-contain rounded-md' src = {banner} />
+        <img className='  absolute w-full h-[60rem] md:h-[30rem]  -top-[10rem] md:top-8 left-0 -z-10 object-contain rounded-md' src = {banner} />
 
       
-      <div className=' bottom-12 flex items-center gap-12 justify-center mt-[30rem] '>
+      <div className=' bottom-12 flex flex-wrap items-center gap-12 justify-center mt-[30rem] '>
            {benefits.map((value) => (
             <div key={value.id} className='cursor-pointer flex flex-col items-center gap-4 justify-center text-slate-700 font-semibold bg-blue w-[15rem] h-[8rem] rounded-lg shadow-lg shadow-gray-500'>
                 <span >{value.icon}</span>
