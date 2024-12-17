@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAllAplicationsQuery } from '../../redux/api/applyApiSlice'
 import { useSelector } from 'react-redux';
 import Loader from '../../components/Loader';
