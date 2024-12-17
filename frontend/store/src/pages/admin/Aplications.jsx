@@ -6,13 +6,17 @@ import Loader from '../../components/Loader';
 
 const Aplications = () => {
      
-    const { data: applies, isLoading }  = useAllAplicationsQuery();
+    const { data: applies, isLoading , refetch}  = useAllAplicationsQuery();
     
  const { userInfo } = useSelector(state => state.auth);
 
  if(isLoading) {
   return <Loader />
 }
+
+useEffect(() => {
+    refetch();
+}, [refetch])
 
   return (
     <div className='w-full flex items-center justify-center px-[10rem] mt-16 '>
