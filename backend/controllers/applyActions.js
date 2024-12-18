@@ -53,13 +53,28 @@ const allBooks = asyncHandler(async(req, res) => {
         });
     }
     
-})
+});
 
+
+const deleteBook = asyncHandler(async(req, res) => {
+    const book = await Apply.findById(req.params.id);
+     
+    if(user) {
+        await book.deleteOne({_id: book._id});
+        res.json({message: 'book removed'});
+    }else {
+        res.status(404);
+        res.json({message: "book not found"})
+    }
+    
+
+
+})
 
 
 
 module.exports = {
     applyTo,
-    allBooks
-    
+    allBooks,
+    deleteBook
 }

@@ -17,11 +17,18 @@ export const applyApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: `${APPLY_URL}/aplications`
             })
+        }),
+
+        deleteApplication: builder.mutation({
+            query: (appId) => ({
+               url: `${APPLY_URL}/aplications/${appId}`,
+               method: 'DELETE'
+            })
         })
     })
 });
 
 
 export const {
-    useCreateApplyMutation, useAllAplicationsQuery
+    useCreateApplyMutation, useAllAplicationsQuery, useDeleteApplicationMutation
 } = applyApiSlice;
