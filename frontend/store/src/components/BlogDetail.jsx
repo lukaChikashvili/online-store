@@ -18,7 +18,15 @@ const BlogDetail = () => {
     const {data: blogs} = useGetSpecificBlogQuery(blogId);
 
 
-
+    const formatText = (text) => {
+   
+      return text.split('\n').map((str, index) => (
+        <span key={index}>
+          {str}
+          <br />
+        </span>
+      ));
+    };
 
     
   return (
@@ -27,7 +35,9 @@ const BlogDetail = () => {
        <div className='flex items-center justify-center px-[10rem] gap-[5rem] mt-12'>
         <div className='flex flex-col gap-12 '>
         <h1 className='text-center text-3xl text-blue font-bold'>{blogs?.name}</h1>
-         <p className='w-full text-xl leading-[2.5rem]'>{blogs?.text}</p>
+         <p className='w-full text-xl leading-[2.5rem]'>
+         {blogs?.text && formatText(blogs?.text)}
+         </p>
         </div>
 
          <img src = {`${BASE_URL}${blogs?.image}`} className='w-[30rem] h-[30rem]  rounded-md shadow-lg' />

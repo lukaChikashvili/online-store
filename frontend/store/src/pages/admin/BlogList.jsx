@@ -37,11 +37,13 @@ const BlogList = () => {
     const handleSubmit = async(e) => {
       e.preventDefault();
 
+      const formattedText = text.replace(/\n/g, '<br />'); 
+
       try {
           const blogData = new FormData();
           blogData.append('image', image);
           blogData.append('name', name);
-          blogData.append('text', text);
+          blogData.append('text', formattedText);
 
           const { data } = await createBlog(blogData);
           
