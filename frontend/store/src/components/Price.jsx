@@ -54,7 +54,7 @@ const Price = () => {
         <h1 className="text-3xl font-bold text-blue">რა ღირს აბონიმენტი?</h1>
         <span className="w-1/2 h-[0.5px] bg-blue"></span>
 
-        <div className='flex items-center gap-4 ml-[43rem] '>
+        <div className='flex items-center gap-4 ml-0 md:ml-[43rem] '>
             <button onClick={() => setActive(false)} className={`w-[10rem]  py-1 rounded-md shadow-lg ${active ? "bg-transparent border-2 border-slate-400 text-slate-700" : "bg-slate-400 text-white"} duration-500 ease hover:opacity-80`}>ფიტნესი</button>
             <button onClick={() => setActive(true)} className={`w-[10rem] ${active ? "bg-slate-400 text-white" : "text-slate-700 border-2 border-slate-400 bg-transparent" }  py-1 rounded-md shadow-lg  duration-500 ease hover:opacity-80`}>აუზი</button>
           

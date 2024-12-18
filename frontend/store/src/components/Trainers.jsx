@@ -24,7 +24,7 @@ const Trainers = () => {
       <div className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-3xl font-bold text-blue">ჩვენი ტრენერები</h1>
         <span className="w-1/2 h-[0.5px] bg-blue"></span>
-        <div className="flex items-center justify-center gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           {trainers.map((value) => (
             <div key={value.id} className="flex flex-col gap-4 items-center mt-12">
               <div className="group relative overflow-hidden rounded-md shadow-lg cursor-pointer">

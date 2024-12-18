@@ -29,12 +29,12 @@ const Services = () => {
 
   return (
     <div className='w-full min-h-screen'>
-        <div className='flex flex-col items-center gap-4'>
+        <div className='flex flex-col items-center gap-4 mt-[7rem]'>
         <h1 className='text-3xl font-bold text-blue'>რას გთავაზობთ</h1>
          <span className='w-1/2 h-[0.5px] bg-blue'></span>
 
 
-         <div className='mt-4 bg-blue w-[80%] grid grid-cols-2 place-items-center gap-8 p-12 rounded-md shadow-lg'>
+         <div className='mt-4 bg-blue w-full md:w-[80%] grid grid-cols-1 md:grid-cols-2 place-items-center gap-8 p-12 rounded-md shadow-lg'>
          {services.map((value) => (
             <div className="relative w-[30rem] h-[15rem] rounded-md shadow-lg cursor-pointer overflow-hidden">
               <img
@@ -47,7 +47,7 @@ const Services = () => {
                 <h2 className="text-2xl text-white font-bold">{value.title}</h2>
                 <button  className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
             <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
-            <span className="relative z-10 text-md flex items-center ">იხილეთ სრულად<ChevronRight size={20} /></span>
+            <span className="relative z-10 text-md flex items-center ">იხილეთ<ChevronRight size={20} /></span>
           </button>
               </div>
             </div>

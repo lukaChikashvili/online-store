@@ -29,7 +29,7 @@ const Testimonials = () => {
   return (
     <div className="w-full min-h-screen  py-16 mt-24">
       <div className="flex flex-col items-center justify-center gap-6">
-        <h1 className="text-4xl font-bold text-slate-700">ჩვენი კმაყოფილი მომხმარებლები</h1>
+        <h1 className="text-4xl font-bold text-slate-700 text-center">ჩვენი კმაყოფილი მომხმარებლები</h1>
         <p className="text-lg text-blue text-center w-3/4 md:w-1/2">
           იხილეთ რას ფიქრობენ ჩვენი მომხმარებლები ჩვენს მომსახურებაზე.
         </p>
