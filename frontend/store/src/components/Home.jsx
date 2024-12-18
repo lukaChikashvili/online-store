@@ -4,6 +4,7 @@ import About from './About';
 import Services from './Services';
 import Trainers from './Trainers';
 import Price from './Price';
+import LatestBlog from './LatestBlog';
 
 const Home = () => {
 
@@ -44,6 +45,7 @@ const Home = () => {
      <Services />
      <Trainers />
      <Price />
+     <LatestBlog />
 
     </div>
   );

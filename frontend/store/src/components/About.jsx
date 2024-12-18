@@ -20,7 +20,7 @@ const About = () => {
             რომლებიც მზად არიან დაგეხმაროთ ნებისმიერი მიზნის მიღწევაში - იქნება ეს წონის დაკლება, ძალის განვითარება, 
             მოქნილობის გაზრდა ან უბრალოდ ჯანსაღი ცხოვრების წესის მიღება.
             </p>
-     <div className='flex flex-col m-auto md:flex-row gap-8 '>
+     <div className='flex flex-col m-auto md:m-2 md:flex-row gap-8 '>
             <button onClick={() => navigate('/login')} className="w-[15rem]  relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
             <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
             <span className="relative z-10 text-md">გაიგე მეტი</span>
