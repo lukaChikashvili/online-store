@@ -59,8 +59,8 @@ const allBooks = asyncHandler(async(req, res) => {
 const deleteBook = asyncHandler(async(req, res) => {
     const book = await Apply.findById(req.params.id);
      
-    if(user) {
-        await book.deleteOne({_id: book._id});
+    if(book) {
+        await book.deleteOne();
         res.json({message: 'book removed'});
     }else {
         res.status(404);

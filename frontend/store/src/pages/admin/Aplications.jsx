@@ -21,7 +21,7 @@ const Aplications = () => {
 const handleDelete = async(id) => {
   if(window.confirm('დარწმუნებული ხარ?')) {
     try {
-       await deleteApplication(id);
+       await deleteApplication(id).unwrap();
     } catch (error) {
         console.log(error.data.message)
     }
@@ -84,7 +84,7 @@ const handleDelete = async(id) => {
                   </td>
 
                   <td className='px-4 py-2'>
-                    {userInfo?.isAdmin && <div>
+                    {userInfo.isAdmin && <div>
                      <button onClick={() => handleDelete(value._id)}><Trash2 className='text-red-600'/></button> 
                       </div>}
                   </td>
