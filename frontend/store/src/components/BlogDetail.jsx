@@ -28,7 +28,9 @@ const BlogDetail = () => {
       ));
     };
 
-    
+    const handleImageError = (event) => {
+      event.target.src = 'https://baia-frontend.onrender.com/assets/logo-CS001Qi1.png ';
+  };
   return (
     <div className='w-full flex flex-col gap-4 items-center justify-center mt-12'>
         <span onClick = {() => navigate('/blogs')} className='mr-[80rem] underline-offset-4 cursor-pointer text-slate-500 font-bold duration-500 ease-in hover:underline flex gap-4'><ArrowLeft /> უკან დაბრუნება</span>
@@ -40,7 +42,7 @@ const BlogDetail = () => {
          </p>
         </div>
 
-         <img src = {`${BASE_URL}${blogs?.image}`} className='w-[30rem] h-[30rem]  rounded-md shadow-lg' />
+         <img src = {`${BASE_URL}${blogs?.image}`} onError={handleImageError}  className='w-[30rem] h-[30rem]  rounded-md shadow-lg' />
          
        </div>
 

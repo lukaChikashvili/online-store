@@ -12,6 +12,9 @@ const AllBlogs = () => {
             return <Loader />
         }
   
+        const handleImageError = (event) => {
+            event.target.src = 'https://baia-frontend.onrender.com/assets/logo-CS001Qi1.png ';
+        };
 
     
   return (
@@ -24,7 +27,7 @@ const AllBlogs = () => {
             {blogs.map((value) => (
                   <Link key = {value._id} to = {`/admin/blog/update/${value._id}`}>
                      <div className='flex flex-col items-center gap-4 bg-slate-300 w-[30rem] p-4 rounded-md shadow-lg'>
-                        <img src = {`${BASE_URL}${value.image}`} className='w-[15rem] h-[15rem] rounded-md shadow-lg object-cover' />
+                        <img onError={handleImageError} src = {`${BASE_URL}${value.image}`} className='w-[15rem] h-[15rem] rounded-md shadow-lg object-cover' />
                         <h1 className='text-2xl text-blue font-bold duration-500 ease hover:underline'>{value.name}</h1>
                         <p>{value.text.substring(0, 70)}...</p>
                        
