@@ -2,6 +2,7 @@ import banner from '../assets/banner.jpg'
 import { BicepsFlexed, Dumbbell, Users, Weight } from 'lucide-react';
 import About from './About';
 import Services from './Services';
+import Trainers from './Trainers';
 
 const Home = () => {
 
@@ -40,6 +41,7 @@ const Home = () => {
 
      <About />
      <Services />
+     <Trainers />
 
     </div>
   );
