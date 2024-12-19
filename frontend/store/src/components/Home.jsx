@@ -22,8 +22,8 @@ const Home = () => {
 
 
   return (
-    <div className=''>
-      <div className='hidden md:block'>
+    <div className='h-screen'>
+      <div className='hidden md:block '>
 
       
         <img className='absolute w-full h-[60rem] md:h-[30rem]  -top-[10rem] md:top-8 left-0 -z-10 object-contain rounded-md' src = {banner} />
