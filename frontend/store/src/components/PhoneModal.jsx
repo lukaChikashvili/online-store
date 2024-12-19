@@ -3,7 +3,7 @@ import { Phone } from 'lucide-react';
 
 const PhoneModal = ({ handleClose }) => {
   return (
-    <div className='w-[80%] bg-blue h-[45vh] m-auto relative -mt-[12rem] rounded-md shadow-lg flex items-center justify-center'>
+    <div className='w-[80%] bg-blue h-[70vh] md:h-[45vh] m-auto relative -mt-[30rem] md:-mt-[12rem] rounded-md shadow-lg flex items-center justify-center'>
       <span 
         className='absolute right-4 top-4 text-xl text-white cursor-pointer' 
         onClick={handleClose}

@@ -7,6 +7,7 @@ import Price from './Price';
 import LatestBlog from './LatestBlog';
 import Testimonials from './Testimonials';
 import Contacts from './Contacts';
+import Map from './Map';
 
 const Home = () => {
 
@@ -50,6 +51,7 @@ const Home = () => {
      <LatestBlog />
      <Testimonials />
      <Contacts />
+     <Map />
     </div>
   );
 };
