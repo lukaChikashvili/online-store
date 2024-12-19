@@ -6,6 +6,7 @@ import Trainers from './Trainers';
 import Price from './Price';
 import LatestBlog from './LatestBlog';
 import Testimonials from './Testimonials';
+import Contacts from './Contacts';
 
 const Home = () => {
 
@@ -48,7 +49,7 @@ const Home = () => {
      <Price />
      <LatestBlog />
      <Testimonials />
-
+     <Contacts />
     </div>
   );
 };
