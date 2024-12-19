@@ -3,8 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+
+ #root, body {
     font-family: "BPG Algeti Compact", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 
