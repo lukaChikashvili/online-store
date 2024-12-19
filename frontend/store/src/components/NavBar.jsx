@@ -6,29 +6,21 @@ import {useLogoutMutation } from '../redux/api/userSlice';
 import { logout } from '../redux/features/auth/authSlice';
 import logo from '../assets/logo.png'
 import { Menu } from 'lucide-react';
+import Mobile from './Mobile';
+
+
+
 
 const NavBar = () => {
 
      const { userInfo } = useSelector(state => state.auth);
    
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [showSidebar, setShowSidebar] = useState(false);
+ 
+
+    const [showMenu, setShowMenu] = useState(false);
 
    
 
-    const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);
-
-    }
-
-    const toggleSidebar = () => {
-        setShowSidebar(!showSidebar);
-        
-    }
-
-    const closeSidebar = () => {
-        setShowSidebar(false);
-    }
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -48,6 +40,11 @@ const NavBar = () => {
       }
     }
 
+
+    const handleLogin = () => {
+      navigate('/login');
+      setShowMenu(false);
+    }
 
   return (
    <header className='w-full h-[5rem] flex items-center justify-between px-[4rem]   '>
@@ -99,9 +96,14 @@ const NavBar = () => {
        
        </div>
 
-       <div className='absolute md:hidden right-12'>
+       <div className='absolute md:hidden right-12' onClick={() => setShowMenu(!showMenu)} >
           <Menu />
         </div>
+
+        {showMenu && <Mobile closeMenu={() => setShowMenu(false)} 
+                             logoutHandler={logoutHandler}
+                             handleLogin={handleLogin}
+                             />}
    </header>
   )
 }
