@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {useLogoutMutation } from '../redux/api/userSlice';
 import { logout } from '../redux/features/auth/authSlice';
 import logo from '../assets/logo.png'
-import { Menu } from 'lucide-react';
+import { Menu, User } from 'lucide-react';
 import Mobile from './Mobile';
 
 
@@ -89,7 +89,7 @@ const NavBar = () => {
          ) : (
             <button onClick={() => navigate('/login')} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
             <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
-            <span className="relative z-10 text-md">შესვლა</span>
+            <span className="relative z-10 text-md flex items-center gap-2"><User size={20} />შესვლა</span>
           </button>
          )}
         
