@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const About = () => {
   return (
-    <div className='w-full min-h-screen mt-[10rem] px-[4rem] '>
+    <div className='w-full min-h-screen mt-[14rem] px-[4rem] '>
        <div className='flex flex-col items-center gap-4'>
          <motion.h1 initial = {{ clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)'}}
                        whileInView={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}

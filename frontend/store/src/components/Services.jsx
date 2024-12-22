@@ -1,5 +1,6 @@
 import { ChevronRight } from 'lucide-react'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const Services = () => {
 
@@ -29,14 +30,22 @@ const Services = () => {
 
   return (
     <div className='w-full min-h-screen'>
-        <div className='flex flex-col items-center gap-4 mt-[7rem]'>
-        <h1 className='text-3xl font-bold text-blue'>რას გთავაზობთ</h1>
-         <span className='w-1/2 h-[0.5px] bg-blue'></span>
+        <div className='flex flex-col items-center gap-4 mt-[3rem]'>
+        <motion.h1 initial = {{ clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)'}}
+                       whileInView={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
+                        transition={{duration: 0.6, delay: 0.3}}  className='text-3xl font-bold text-blue'>რას გთავაზობთ</motion.h1>
+         <motion.span initial = {{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)'}}
+                     whileInView={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
+                     transition={{ duration: 1, delay: 0.5 }} className='w-1/2 h-[0.5px] bg-blue'></motion.span>
 
 
-         <div className='mt-4 bg-blue w-full md:w-[80%] grid grid-cols-1 md:grid-cols-2 place-items-center gap-8 p-12 rounded-md shadow-lg'>
-         {services.map((value) => (
-            <div className="relative w-[30rem] h-[15rem] rounded-md shadow-lg cursor-pointer overflow-hidden">
+         <motion.div initial = {{ opacity: 0}}
+            whileInView={{opacity: 1 }} 
+            transition={{duration: 0.7, delay: 0.8}} className='mt-4 bg-blue w-full md:w-[80%] grid grid-cols-1 md:grid-cols-2 place-items-center gap-8 p-12 rounded-md shadow-lg'>
+         {services.map((value, i) => (
+            <motion.div initial = {{ opacity: 0, translateY: 15}}
+            whileInView={{opacity: 1, translateY: 0 }} 
+            transition={{duration: 0.7, delay: i * 0.25 }} className="relative w-[30rem] h-[15rem] rounded-md shadow-lg cursor-pointer overflow-hidden">
               <img
                 src={value.img}
                 className="w-full h-full object-cover "
@@ -50,9 +59,9 @@ const Services = () => {
             <span className="relative z-10 text-md flex items-center ">იხილეთ<ChevronRight size={20} /></span>
           </button>
               </div>
-            </div>
+            </motion.div>
           ))}
-         </div>
+         </motion.div>
         </div>
     </div>
   )
