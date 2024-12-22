@@ -9,6 +9,7 @@ import Testimonials from './Testimonials';
 import Contacts from './Contacts';
 import Map from './Map';
 import Footer from './Footer';
+import { motion } from 'framer-motion'
 
 const Home = () => {
 
@@ -26,7 +27,9 @@ const Home = () => {
       <div className='hidden md:block '>
 
       
-        <img className='absolute w-full h-[60rem] md:h-[30rem]  -top-[10rem] md:top-8 left-0 -z-10 object-contain rounded-md' src = {banner} />
+        <motion.img   initial = {{ opacity: 0}}
+                   whileInView={{opacity: 1}} 
+                   transition={{duration: 1, delay: 0.7}} className='absolute w-full h-[60rem] md:h-[30rem]  -top-[10rem] md:top-8 left-0 -z-10 object-contain rounded-md' src = {banner} />
         </div>
 
         <div>
@@ -34,12 +37,14 @@ const Home = () => {
         </div>
       
       <div className=' bottom-12 flex flex-wrap items-center gap-12 justify-center mt-[30rem] '>
-           {benefits.map((value) => (
-            <div key={value.id} className='cursor-pointer flex flex-col items-center gap-4 justify-center text-slate-700 font-semibold bg-blue w-[15rem] h-[8rem] rounded-lg shadow-lg shadow-gray-500'>
+           {benefits.map((value, i) => (
+            <motion.div initial = {{ opacity: 0, translateY: 15}}
+            whileInView={{opacity: 1, translateY: 0 }} 
+            transition={{duration: 0.7, delay: i * 0.25 }} key={value.id} className='cursor-pointer flex flex-col items-center gap-4 justify-center text-slate-700 font-semibold bg-blue w-[15rem] h-[8rem] rounded-lg shadow-lg shadow-gray-500'>
                 <span >{value.icon}</span>
                 <h2>{value.title}</h2>
 
-                </div>
+                </motion.div>
             
                 
            ))}
