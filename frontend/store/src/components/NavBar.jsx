@@ -7,6 +7,7 @@ import { logout } from '../redux/features/auth/authSlice';
 import logo from '../assets/logo.png'
 import { Menu, User } from 'lucide-react';
 import Mobile from './Mobile';
+import { motion } from 'framer-motion'
 
 
 
@@ -49,7 +50,10 @@ const NavBar = () => {
   return (
    <header className='w-full h-[5rem] flex items-center justify-between px-[4rem]   '>
        <div>
-         <img src = {logo} className='w-[5rem] md:w-[7em] -ml-4 cursor-pointer' onClick={() => navigate('/')} />
+         <motion.img initial = {{ opacity: 0, translateY: 15}}
+                     whileInView={{opacity: 1, translateY: 0 }} 
+                     transition={{duration: 0.5, delay: 0.7}} 
+          src = {logo} className='w-[5rem] md:w-[7em] -ml-4 cursor-pointer' onClick={() => navigate('/')} />
        </div>
 
 
@@ -66,10 +70,18 @@ const NavBar = () => {
             </nav>
           ) : (
             <nav className='flex items-center gap-6 '>
-            <Link to = "/">ჩვენს შესახებ</Link>
-            <Link to = "/">სერვისები</Link>
-            <Link to = "/blogs">ბლოგი</Link>
-            <Link to = "/apply">შემოგვიერთდი</Link>
+            <motion.span initial = {{ opacity: 0, translateY: 15}}
+                         whileInView={{opacity: 1, translateY: 0 }} 
+                         transition={{duration: 0.5, delay: 0.2}}><Link to = "/">ჩვენს შესახებ</Link></motion.span>
+            <motion.span initial = {{ opacity: 0, translateY: 15}}
+                         whileInView={{opacity: 1, translateY: 0 }} 
+                         transition={{duration: 0.5, delay: 0.4}}><Link to = "/">სერვისები</Link></motion.span>
+             <motion.span initial = {{ opacity: 0, translateY: 15}}
+                         whileInView={{opacity: 1, translateY: 0 }} 
+                         transition={{duration: 0.5, delay: 0.6}}><Link to = "/blogs">ბლოგი</Link></motion.span>
+            <motion.span initial = {{ opacity: 0, translateY: 15}}
+                         whileInView={{opacity: 1, translateY: 0 }} 
+                         transition={{duration: 0.5, delay: 0.8}}><Link to = "/apply">შემოგვიერთდი</Link></motion.span>
           </nav>
           )}
          </div>
@@ -82,15 +94,19 @@ const NavBar = () => {
 
        
          {userInfo ? (
-           <button  onClick={logoutHandler} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
+           <motion.button initial = {{ opacity: 0, translateY: 15}}
+           whileInView={{opacity: 1, translateY: 0 }} 
+           transition={{duration: 0.5, delay: 0.9}} onClick={logoutHandler} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
            <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
            <span className="relative z-10 text-md">გამოსვლა</span>
-         </button>
+         </motion.button>
          ) : (
-            <button onClick={() => navigate('/login')} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
+            <motion.button initial = {{ opacity: 0, translateY: 15}}
+            whileInView={{opacity: 1, translateY: 0 }} 
+            transition={{duration: 0.5, delay: 0.9}} onClick={() => navigate('/login')} className="relative group overflow-hidden px-8 py-1 bg-blue text-white rounded-md">
             <span className="absolute inset-0 bg-[#F29F58] transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 clip-path-curved"></span>
             <span className="relative z-10 text-md flex items-center gap-2"><User size={20} />შესვლა</span>
-          </button>
+          </motion.button>
          )}
         
        
