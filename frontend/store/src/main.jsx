@@ -20,6 +20,7 @@ import Blogs from './components/Blogs.jsx'
 import BlogDetail from './components/BlogDetail.jsx'
 import ApplyTo from './components/ApplyTo.jsx'
 import Aplications from './pages/admin/Aplications.jsx'
+import NotFound from './components/NotFound.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,7 +37,7 @@ const router = createBrowserRouter(
       <Route path='/blogs/detail/:id' element = {<BlogDetail />} />
 
       <Route path= '/apply' element = {<ApplyTo />} />
-      
+      <Route path ="*" element = {<NotFound />} />
       
 
       <Route path = '/admin' element = {<AdminRoutes />}>
