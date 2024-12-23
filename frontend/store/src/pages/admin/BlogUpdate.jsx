@@ -110,7 +110,7 @@ const handleDelete = async () => {
 
                  <div className='flex flex-col '>
                 <label htmlFor='name'>ტექსტი</label> <br />
-                 <textarea type='text'  value = {text} onChange={(e) => setText(e.target.value)} className='p-2 w-[30rem] h-[13rem] border rounded-lg bg-slate-200 outline-none shadow-lg'  />
+                 <textarea type='text'   value = {text} onChange={(e) => setText(e.target.value)} className='p-2 w-[30rem] h-[13rem] border rounded-lg bg-slate-200 outline-none shadow-lg'  />
                  </div>
             </div>
 

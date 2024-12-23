@@ -37,7 +37,7 @@ const BlogDetail = () => {
        <div className='flex items-center justify-center px-[10rem] gap-[5rem] mt-12'>
         <div className='flex flex-col gap-12 '>
         <h1 className='text-center text-3xl text-blue font-bold'>{blogs?.name}</h1>
-         <p  dangerouslySetInnerHTML={{ __html: blogs?.text }} className='w-full text-xl leading-[2.5rem]'>
+         <p dangerouslySetInnerHTML={{ __html: blogs?.text }} className='w-full text-xl leading-[2.5rem]'>
      
          </p>
         </div>

@@ -28,7 +28,7 @@ const LatestBlog = () => {
                             <div className='flex flex-col gap-2'>
                                 <img onError={handleImageError} src={`${BASE_URL}${value.image}`} className='w-full h-[15rem] sm:h-[20rem] lg:h-[20rem] rounded-md shadow-lg cursor-pointer object-cover'/>
                                 <h1 className='text-blue font-bold text-xl cursor-pointer duration-500 ease hover:underline'>{value.name}</h1>
-                                <p className='text-sm sm:text-base'>{value.text.substring(0, 25)}...</p>
+                                <p className='text-sm sm:text-base' dangerouslySetInnerHTML={{ __html: blogs?.text.substring(0, 25) }}></p>
                             </div>
                         </Link>
                     ))}
