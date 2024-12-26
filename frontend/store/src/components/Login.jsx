@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { setCredentials } from '../redux/features/auth/authSlice';
 import { Eye, EyeOff } from 'lucide-react';
 
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,31 +50,28 @@ const Login = () => {
     return valid;
   };
 
-
-  
-  const submitHandler = async (e) => {
-     e.preventDefault();
-
+  const handleLogin = async () => {
     if (!validateForm()) return;
 
     try {
       const res = await login({ email, password }).unwrap();
-
       if (res.token) {
         dispatch(setCredentials({ ...res }));
         localStorage.setItem('jwt', res.token);
+        navigate(redirect);
       } else {
         setErrorMessage('Authentication failed. Please try again.');
-        setErrorMessage(
-          error?.data?.message || 'პაროლი ან ელ-ფოსტა არასწორია.'
-        );
       }
     } catch (error) {
-    
       setErrorMessage(
-        error?.data?.message || 'ელ-ფოსტა ან პაროლი არასწორია. კიდევ სცადეთ.'
+        error?.data?.message || 'პაროლი ან ელ-ფოსტა არასწორია.'
       );
     }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handleLogin(); 
   };
 
   return (
@@ -85,7 +81,7 @@ const Login = () => {
           <h1 className="text-5xl font-semibold mb-4">სისტემაში შესვლა</h1>
         </div>
 
-        <form  className="container w-[40rem]">
+        <form onSubmit={submitHandler} className="container w-[40rem]">
           {errorMessage && (
             <div className="bg-red-100 text-red-600 p-2 rounded mb-4">
               {errorMessage}
@@ -129,9 +125,8 @@ const Login = () => {
           </div>
 
           <button
-             onClick={submitHandler}
+            type="submit"
             disabled={isLoading}
-            
             className="bg-blue text-white w-full px-4 py-2 rounded shadow-gray-400 shadow-md duration-500 ease hover:bg-orange-300"
           >
             {isLoading ? 'გთხოვთ დაელოდოთ..' : 'შესვლა'}

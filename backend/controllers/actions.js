@@ -16,7 +16,7 @@ const createUser = asyncHandler(async(req, res) => {
 
    const userExists = await User.findOne({email});
 
-   if(userExists) res.status(400).send("user already exists");
+   if(userExists) res.status(400).send("მომხმარებელი უკვე არსებობს");
 
    const salt = await bcrypt.genSalt(10);
    const hashedPassword = await bcrypt.hash(password, salt);
@@ -49,7 +49,6 @@ const createUser = asyncHandler(async(req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
   
-   
     const existingUser = await User.findOne({ email });
   
     if (!existingUser) {
@@ -62,17 +61,25 @@ const loginUser = asyncHandler(async (req, res) => {
       return res.status(401).json({ message: 'ელ-ფოსტა ან პაროლი არასწორია.' });
     }
   
-    
-    const token = createToken.generateToken(existingUser._id);
+    try {
+      
+      const token = createToken.generateToken(existingUser._id);
   
-   
-    res.status(200).json({
-      _id: existingUser._id,
-      username: existingUser.username,
-      email: existingUser.email,
-      isAdmin: existingUser.isAdmin,
-      token,
-    });
+      
+      jwt.verify(token, process.env.JWT_SECRET); 
+  
+      
+      return res.status(200).json({
+        _id: existingUser._id,
+        username: existingUser.username,
+        email: existingUser.email,
+        isAdmin: existingUser.isAdmin,
+        token,
+      });
+    } catch (error) {
+     
+      return res.status(500).json({ message: 'Token creation failed or token is invalid' });
+    }
   });
   
 
