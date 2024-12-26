@@ -10,7 +10,7 @@ const createUser = asyncHandler(async(req, res) => {
    const { username, email, password} = req.body;
 
    if(!username || !email || !password) {
-    throw new Error("please fill all the inputs");
+    throw new Error("გთხოვთ შეავსოთ ყველა ველი.");
 
    }
 
