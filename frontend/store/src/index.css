@@ -132,3 +132,19 @@ nav a{
   1px 25px 35px rgba(16,16,16,0.2),
   1px 30px 60px rgba(16,16,16,0.4);
 }
+
+@keyframes borderError {
+  0% {
+    border-color: red;
+    box-shadow: 0 0 5px red;
+  }
+  100% {
+    border-color: transparent;
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+.border-animated {
+  border: 2px solid red;
+  animation: borderError 0.5s ease-in-out;
+}

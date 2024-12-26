@@ -46,34 +46,35 @@ const createUser = asyncHandler(async(req, res) => {
 
 // login user
 
-const loginUser = asyncHandler(async(req, res) => {
-  const { email, password }  = req.body;
-
-  const existingUser = await User.findOne({email});
-
-  if(existingUser) {
-      const isPasswordValid = await bcrypt.compare(password, existingUser.password);
-
-      if(isPasswordValid) {
-        const token = createToken.generateToken(existingUser._id);
-
-         res.status(201).json({
-
-            _id: existingUser._id,
-            username: existingUser.username, 
-            email: existingUser.email, 
-            isAdmin: existingUser.isAdmin,
-            token
-        
-        });
-            
-
-            return;
-
-
-      }
-  }
-});
+const loginUser = asyncHandler(async (req, res) => {
+    const { email, password } = req.body;
+  
+   
+    const existingUser = await User.findOne({ email });
+  
+    if (!existingUser) {
+      return res.status(404).json({ message: 'მომხმარებელი ვერ მოიძებნა' });
+    }
+  
+    const isPasswordValid = await bcrypt.compare(password, existingUser.password);
+  
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+  
+    
+    const token = createToken.generateToken(existingUser._id);
+  
+   
+    res.status(200).json({
+      _id: existingUser._id,
+      username: existingUser.username,
+      email: existingUser.email,
+      isAdmin: existingUser.isAdmin,
+      token,
+    });
+  });
+  
 
 // logout user
 const logoutUser = asyncHandler(async(req, res) => {
