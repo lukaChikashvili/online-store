@@ -78,7 +78,7 @@ const loginUser = asyncHandler(async (req, res) => {
       });
     } catch (error) {
      
-      return res.status(500).json({ message: 'Token creation failed or token is invalid' });
+      return res.status(500).json({ message: 'მონაცემები არასწორია' });
     }
   });
   
