@@ -66,8 +66,7 @@ const loginUser = asyncHandler(async (req, res) => {
       const token = createToken.generateToken(existingUser._id);
   
       
-      jwt.verify(token, process.env.JWT_SECRET); 
-  
+
       
       return res.status(200).json({
         _id: existingUser._id,
