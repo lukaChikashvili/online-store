@@ -56,7 +56,7 @@ const Login = () => {
   const submitHandler = async (e) => {
      e.preventDefault();
 
-    //if (!validateForm()) return;
+    if (!validateForm()) return;
 
     try {
       const res = await login({ email, password }).unwrap();
@@ -73,7 +73,7 @@ const Login = () => {
     } catch (error) {
     
       setErrorMessage(
-        error?.data?.message || 'Incorrect email or password. Please try again.'
+        error?.data?.message || 'ელ-ფოსტა ან პაროლი არასწორია. კიდევ სცადეთ.'
       );
     }
   };
