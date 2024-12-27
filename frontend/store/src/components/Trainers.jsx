@@ -18,7 +18,7 @@ const Trainers = () => {
     {
       id: 3,
       img: "https://thumbs.dreamstime.com/b/african-american-fitness-trainer-14694263.jpg",
-      name: "ზანგი კაცი",
+      name: "ანზორ ჭკადუა",
     },
   ];
 
